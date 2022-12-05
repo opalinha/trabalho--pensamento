@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<!--Background-Animado-->
+  <div class="context"></div>
+  <div class="area" >
+              <ul class="circles">
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+              </ul>
+  </div>
+
+  <head>
+
+  <title>Soma</title>
+
+<!--Link-Alerta-->  
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="Soma.css">
+    <meta charset="UTF-8"/>
+  </head>
+
+<!--Cabeçalho-->
+  <header>Adição</header>
+
+  <body>
+        <div class="box"></div>
+        <input class="Campo-de-Resposta" type="text" id="valor"/>
+        <h1 class="Conta-Soma" id="display">2 + 3</h1>
+    
+        
+    <script type="text/javascript">
+
+      function numeroAleatorio() {
+        return Math.floor(Math.random() * 1000);
+      }
+
+      let numero1 = numeroAleatorio();
+      let numero2 = numeroAleatorio();
+
+
+      let display = document.querySelector("#display");
+
+      display.innerHTML = numero1 + " + " + numero2;
+
+      let input = document.querySelector("#valor");
+
+      input.addEventListener("keyup", (event) => {
+        if (event.keyCode == "13") {
+          if (numero1 + numero2 === parseInt(input.value)) {
+            numero1 = numeroAleatorio();
+            numero2 = numeroAleatorio();
+            display.innerHTML = numero1 + " + " + numero2;
+            input.value = "";
+          } else {
+            swal("Você errou, o valor correto é: " + (numero1 + numero2));
+          } 
+        }  
+      });
+
+    </script> 
+    
+    <nav>
+      <ul class="voltar">
+          <li><a href="Intro.html">Voltar</a></li>
+      </ul>
+  </nav>
+  </body>
+
+
+  <footer>Colégio Estadual São José</footer>
+</html>
